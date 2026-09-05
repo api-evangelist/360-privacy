@@ -1,0 +1,74 @@
+generated: '2026-09-05'
+method: probed
+source: https://auth.360privacy.io/.well-known/openid-configuration
+note: >-
+  360 Privacy publishes no API contract, so there is nothing to assert about REST, pagination,
+  RFC 9457 error semantics or idempotency — those entries are recorded as not applicable rather
+  than false, because the company has no surface on which they could be true. The only
+  standards conformance that can be evidenced is the OpenID Connect / OAuth 2.0 metadata its
+  Auth0 custom domain serves for the customer dashboard.
+conformance:
+- id: oidc
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: >-
+    https://auth.360privacy.io/.well-known/openid-configuration returns HTTP 200
+    application/json with issuer, authorization_endpoint, token_endpoint, userinfo_endpoint,
+    jwks_uri, response_types_supported and subject_types_supported.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  evidence: >-
+    Authorization, token, revocation and device-authorization endpoints advertised in the
+    discovery document; authorization_code, client_credentials, refresh_token and device_code
+    grants declared.
+- id: rfc8414
+  name: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  evidence: >-
+    https://auth.360privacy.io/.well-known/oauth-authorization-server returns HTTP 200 with the
+    same authorization-server metadata document (2,581 bytes).
+- id: rfc7636
+  name: RFC 7636 PKCE
+  conforms: true
+  evidence: 'code_challenge_methods_supported: ["S256","plain"] in the discovery document.'
+- id: rfc7517
+  name: RFC 7517 JSON Web Key Set
+  conforms: true
+  evidence: >-
+    https://auth.360privacy.io/.well-known/jwks.json returns HTTP 200 with 2 RS256 signing keys.
+- id: rfc9449
+  name: RFC 9449 OAuth 2.0 Demonstrating Proof of Possession (DPoP)
+  conforms: true
+  evidence: 'dpop_signing_alg_values_supported: ["ES256"] in the discovery document.'
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on 360privacy.io, www.360privacy.io and
+    auth.360privacy.io; trust.360privacy.io answers 200 with an SPA HTML shell, not a document.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document found on any host. /openapi.json, /swagger.json and /api-docs
+    return 404 on 360privacy.io; api.360privacy.io and developer.360privacy.io do not resolve in DNS.
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: na
+  evidence: No public API surface exists on which an error format could be observed.
+- id: idempotency
+  name: Idempotency-Key semantics
+  conforms: na
+  evidence: No public API surface exists; there is no mutating operation to make idempotent.
+domain_standards:
+  note: >-
+    REWARD-ONLY CHECK, HONESTLY EMPTY. The consumer-privacy / data-broker-removal market does
+    have candidate machine-readable standards an operator in this space could declare — the
+    IAB Global Privacy Platform, the Global Privacy Control (GPC) signal, and DSAR/authorized-
+    agent request formats such as the CCPA Delete Request and Opt-Out Platform (DROP) schema
+    that California's DELETE Act mandates. 360 Privacy publishes no contract in which any of
+    these could be declared, so no domain standard is asserted. This is recorded as absent, not
+    as failing.
+  declared: []
+checked: '2026-09-05'

@@ -1,0 +1,95 @@
+generated: '2026-09-05'
+method: probed
+source: https://auth.360privacy.io/.well-known/openid-configuration
+scope_note: >-
+  IMPORTANT — what this profile does and does not cover. 360 Privacy publishes no public API and
+  no API reference, so there is no API authentication model to document. What IS published, and
+  what is captured here, is a standards-compliant OpenID Connect Discovery document served from
+  the company's own Auth0 custom domain. It governs sign-in to the authenticated customer
+  dashboard and to the Auth0-gated GitBook documentation at docs.360privacy.io. Do not read this
+  artifact as evidence of a developer-facing authentication surface.
+provider: Auth0 (custom domain auth.360privacy.io, CNAME to CloudFront)
+issuer: https://auth.360privacy.io/
+discovery:
+  openid_configuration: https://auth.360privacy.io/.well-known/openid-configuration
+  oauth_authorization_server: https://auth.360privacy.io/.well-known/oauth-authorization-server
+  jwks_uri: https://auth.360privacy.io/.well-known/jwks.json
+  http_status: 200
+endpoints:
+  authorization: https://auth.360privacy.io/authorize
+  token: https://auth.360privacy.io/oauth/token
+  userinfo: https://auth.360privacy.io/userinfo
+  revocation: https://auth.360privacy.io/oauth/revoke
+  registration: https://auth.360privacy.io/oidc/register
+  device_authorization: https://auth.360privacy.io/oauth/device/code
+  backchannel_authentication: https://auth.360privacy.io/bc-authorize
+  mfa_challenge: https://auth.360privacy.io/mfa/challenge
+schemes:
+- id: oidc_customer_dashboard
+  type: openIdConnect
+  openIdConnectUrl: https://auth.360privacy.io/.well-known/openid-configuration
+  description: >-
+    OpenID Connect sign-in for the 360 Privacy customer dashboard and the gated GitBook
+    documentation. Universal Login is served at /u/login/identifier.
+- id: oauth2_authorization_code
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://auth.360privacy.io/authorize
+  tokenUrl: https://auth.360privacy.io/oauth/token
+  pkce: true
+  description: Authorization Code with PKCE (S256 and plain advertised).
+- id: oauth2_client_credentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://auth.360privacy.io/oauth/token
+  description: >-
+    client_credentials is advertised in grant_types_supported by the tenant. This is the Auth0
+    default advertisement and is NOT documented by 360 Privacy as a machine-to-machine API
+    surface; no audience, no protected resource and no API reference is published.
+grant_types_supported:
+- client_credentials
+- authorization_code
+- refresh_token
+- password
+- implicit
+- 'urn:ietf:params:oauth:grant-type:device_code'
+- 'urn:ietf:params:oauth:grant-type:token-exchange'
+- 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+- 'http://auth0.com/oauth/grant-type/password-realm'
+- 'http://auth0.com/oauth/grant-type/passwordless/otp'
+- 'http://auth0.com/oauth/grant-type/mfa-oob'
+- 'http://auth0.com/oauth/grant-type/mfa-otp'
+- 'http://auth0.com/oauth/grant-type/mfa-recovery-code'
+scopes_supported:
+- openid
+- profile
+- offline_access
+- name
+- given_name
+- family_name
+- nickname
+- email
+- email_verified
+- picture
+- created_at
+- identities
+- phone
+- address
+scopes_note: >-
+  These are the stock OIDC/Auth0 identity scopes advertised by the tenant. There is no API
+  permission or authorization scope surface, which is why no scopes/ artifact is written for
+  this provider.
+token_signing:
+  id_token_algs: [HS256, RS256, PS256]
+  jwks_keys: 2
+  jwks_algs: [RS256, RS256]
+  dpop_signing_algs: [ES256]
+mfa:
+  supported: true
+  evidence: mfa_challenge_endpoint plus mfa-oob / mfa-otp / mfa-recovery-code grant types
+features:
+  pkce: true
+  dpop: true
+  backchannel_logout: true
+  dynamic_client_registration: true
+  global_token_revocation: true

@@ -1,0 +1,34 @@
+generated: '2026-09-05'
+method: probed
+source: https://trust.360privacy.io/
+present: true
+platform: Vanta Trust Center
+platform_evidence: >-
+  trust.360privacy.io is a CNAME to 664e452a3a3cc20954605ad8.cname.vantatrust.com; the served
+  HTML is the Vanta trust-report bundle (assets.vanta.com/static/index-trust-report-*.js) with
+  data-slugid w916ucb408p3x5w0ut7mzc.
+http_status: 200
+discovered_via: >-
+  A "Trust Center" link on the company page at https://360privacy.io/company/. The trust center
+  is not linked from the site's llms.txt and does not appear in sitemap_index.xml.
+certifications: []
+certifications_note: >-
+  NOT READABLE, NOT ABSENT. The trust center is a client-side single-page app: the served HTML
+  is a 7,021-byte shell containing only the title "360 Privacy Trust Center", and every
+  certification, control and document listing is rendered by JavaScript after load. No named
+  certification (SOC 2, ISO 27001, ISO 27701, PCI, HIPAA, FedRAMP) could therefore be evidenced
+  from the anonymous surface, and none is asserted here. Vanta's own API returns 401 to an
+  anonymous caller (https://api.vanta.com/v1/trust-centers/w916ucb408p3x5w0ut7mzc -> 401), and
+  every path under trust.360privacy.io is answered by an SPA catch-all with the same 5,437-byte
+  HTML, so there is no machine-readable projection of the trust center to read. Because no
+  certification could be named, no `Compliance` pointer is claimed for this provider — a trust
+  center a machine cannot read is not a published compliance program.
+document_request:
+  available: unknown
+  note: >-
+    Vanta trust centers commonly gate report downloads behind an NDA/email request flow, but the
+    flow is inside the JS bundle and could not be observed anonymously.
+related:
+  data_processing_agreement: https://360privacy.io/data-processing-agreement/
+  privacy_policy: https://360privacy.io/privacy-policy/
+checked: '2026-09-05'

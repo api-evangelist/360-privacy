@@ -1,0 +1,106 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Live anonymous GET of the named /.well-known/ path list against every host this record knows:
+  the registrable domain and www, the Auth0 custom-domain tenant that fronts the customer
+  dashboard, the GitBook documentation host, the Vanta trust center, and the HubSpot marketing
+  host. 360 Privacy publishes no API, so there are no baseURL or OpenAPI servers[] hosts to probe.
+note: >-
+  The only real discovery documents 360 Privacy serves are the OIDC/OAuth2 metadata on its Auth0
+  custom domain auth.360privacy.io, which fronts the authenticated customer dashboard and the
+  Auth0-gated GitBook docs — not a public API. No security.txt, api-catalog, ai-plugin or agent
+  card is served on any host. IMPORTANT FALSE-POSITIVE GUARD: trust.360privacy.io is a Vanta
+  Trust Center single-page app whose catch-all answers HTTP 200 with the same 5,437-byte HTML
+  shell for EVERY /.well-known/* path, including agent-card.json. Those 200s are recorded below
+  as misses with shell: true — they are not documents, and no WellKnown, SecurityTxt or AgentCard
+  pointer is claimed from that host.
+hosts:
+- host: auth.360privacy.io
+  role: Auth0 custom-domain tenant (customer dashboard + GitBook visitor auth)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: 360-privacy-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: 360-privacy-oauth-authorization-server.json
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: 360-privacy-jwks.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: 360privacy.io
+  role: marketing site (WordPress)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.360privacy.io
+  role: marketing site alias (301 to apex)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: trust.360privacy.io
+  role: Vanta Trust Center (SPA — catch-all 200 HTML on every path)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not a document — treated as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not an AgentCard — treated as a miss.
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not an AgentCard — treated as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not a document — treated as a miss.
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not a document — treated as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    shell: true
+    note: SPA catch-all HTML, not a document — treated as a miss.
+- host: docs.360privacy.io
+  role: GitBook documentation, sealed behind GitBook Visitor Auth -> Auth0
+  documents:
+  - path: /.well-known/security.txt
+    status: 307
+    note: Redirects to the GitBook VA-Auth0 installation, then to the Auth0 login. Not readable anonymously.
+checked: '2026-09-05'

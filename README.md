@@ -64,5 +64,19 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-360 Privacy is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+360 Privacy is a Nashville, Tennessee based digital executive protection company, founded in 2019, that
+reduces the online exposure of executives, public figures, athletes and their families. Its analyst-led
+platform pairs proprietary technology with human intelligence to locate and delete personally identifiable
+information from data broker and people-search sites (360 Delete), to scan the deep and dark web for
+compromised credentials and exposed PII (360 Monitor), and to provide continuous monitoring with hands-on
+threat response for high-risk individuals (360 Defend).
+
+The product is delivered as a managed service through an authenticated customer dashboard. As of the
+2026-09-05 profiling pass, 360 Privacy publishes **no public API, no API reference and no machine-readable
+contract**; `api.360privacy.io` and `developer.360privacy.io` do not resolve, and the only documentation
+host (`docs.360privacy.io`) is a GitBook knowledge base sealed behind GitBook Visitor Auth into the
+company's Auth0 tenant. See `x-coverage` in `apis.yml`.
+
+- https://360privacy.io/
+- https://github.com/360privacy
+- https://trust.360privacy.io/

@@ -1,17 +1,30 @@
 aid: 360-privacy
 name: 360 Privacy
-description: '360 Privacy is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 360 Privacy is a Nashville, Tennessee based digital executive protection company, founded
+  in 2019, that reduces the online exposure of executives, public figures, athletes and their families.
+  Its analyst-led platform pairs proprietary technology with human intelligence to locate and delete personally
+  identifiable information from data broker and people-search sites (360 Delete), to scan the deep and
+  dark web for compromised credentials and exposed PII (360 Monitor), and to provide continuous monitoring
+  with hands-on threat response for high-risk individuals (360 Defend). The product is delivered as a
+  managed service through an authenticated customer dashboard; as of this profile the company publishes
+  no public developer program, API reference or machine-readable contract.
+image: https://360privacy.io/wp-content/uploads/2026/05/WHITE_PRIMARY-scaled.jpg
 url: https://raw.githubusercontent.com/api-evangelist/360-privacy/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-05'
 modified: '2026-09-05'
 tags:
 - Company
+- Privacy
+- Data Removal
+- Executive Protection
+- Cybersecurity
+- Threat Intelligence
+- Dark Web Monitoring
+- Personal Data
+- Managed Services
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +32,56 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/360-privacy-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://360privacy.io/
+- type: About
+  url: https://360privacy.io/company/
+- type: Blog
+  url: https://360privacy.io/articles/
+- type: PrivacyPolicy
+  url: https://360privacy.io/privacy-policy/
+- type: TermsOfService
+  url: https://360privacy.io/terms-conditions/
+- type: GitHubOrganization
+  url: https://github.com/360privacy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/360-privacy
+- type: LLMsTxt
+  url: llms/360-privacy-llms.txt
+- type: WellKnown
+  url: well-known/360-privacy-well-known.yml
+- type: Authentication
+  url: authentication/360-privacy-authentication.yml
+- type: Conformance
+  url: conformance/360-privacy-conformance.yml
+- type: TrustCenter
+  url: security/360-privacy-trust-center.yml
+- type: Plans
+  url: plans/360-privacy-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/360-privacy-rate-limits.yml
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 11
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: '360 Privacy sells analyst-led data removal as a managed service, not as software an integrator
+    calls: api. and developer. subdomains do not resolve, /openapi.json 404s on the marketing site, the
+    site''s own llms.txt indexes only marketing pages with no developer section, and the single docs host
+    docs.360privacy.io is a GitBook knowledge base for the customer dashboard sealed behind GitBook Visitor
+    Auth into the company Auth0 tenant.'
+  evidence:
+  - url: https://360privacy.io/openapi.json
+    status: 404
+  - url: https://docs.360privacy.io/
+    status: 307
+  - url: https://360privacy.io/llms.txt
+    status: 200
+  - url: https://auth.360privacy.io/.well-known/openid-configuration
+    status: 200
+  checked: '2026-09-05'
