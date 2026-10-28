@@ -64,19 +64,97 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-360 Privacy is a Nashville, Tennessee based digital executive protection company, founded in 2019, that
-reduces the online exposure of executives, public figures, athletes and their families. Its analyst-led
-platform pairs proprietary technology with human intelligence to locate and delete personally identifiable
-information from data broker and people-search sites (360 Delete), to scan the deep and dark web for
-compromised credentials and exposed PII (360 Monitor), and to provide continuous monitoring with hands-on
-threat response for high-risk individuals (360 Defend).
+360 Privacy is a Nashville, Tennessee based digital executive protection company, founded in 2019, that reduces the online exposure of executives, public figures, athletes and their families. Its analyst-led platform pairs proprietary technology with human intelligence to locate and delete personally identifiable information from data broker and people-search sites (360 Delete), to scan the deep and dark web for compromised credentials and exposed PII (360 Monitor), and to provide continuous monitoring with hands-on threat response for high-risk individuals (360 Defend). The product is delivered as a managed service through an authenticated customer dashboard; as of this profile the company publishes no public developer program, API reference or machine-readable contract.
 
-The product is delivered as a managed service through an authenticated customer dashboard. As of the
-2026-09-05 profiling pass, 360 Privacy publishes **no public API, no API reference and no machine-readable
-contract**; `api.360privacy.io` and `developer.360privacy.io` do not resolve, and the only documentation
-host (`docs.360privacy.io`) is a GitBook knowledge base sealed behind GitBook Visitor Auth into the
-company's Auth0 tenant. See `x-coverage` in `apis.yml`.
+**Areas:** Company · Privacy · Data Removal · Executive Protection · Cybersecurity · Threat Intelligence · Dark Web Monitoring · Personal Data · Managed Service
 
-- https://360privacy.io/
-- https://github.com/360privacy
-- https://trust.360privacy.io/
+## 360 Privacy on APIs.io
+
+Everything profiled for 360 Privacy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/360-privacy/](https://apis.io/providers/360-privacy/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [360 Privacy Authentication](https://apis.io/security/360-privacy/360-privacy-authentication/)
+- [360 Privacy Domain Security](https://apis.io/security/360-privacy/360-privacy-domain-security/)
+- [360 Privacy Trust Center](https://apis.io/security/360-privacy/360-privacy-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [360 Privacy Plans Pricing](https://apis.io/plans/360-privacy/360-privacy-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [360 Privacy Rate Limits](https://apis.io/rate-limits/360-privacy/360-privacy-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://360privacy.io/)
+- [Blog](https://360privacy.io/newsroom/)
+- [Terms of service](https://360privacy.io/terms-conditions/)
+- [Privacy policy](https://360privacy.io/privacy-policy/)
+- [GitHub](https://github.com/360privacy)
+
+## API Evangelist rating
+
+**Kin Score 18.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 28.9 |
+
+**Agent readiness 17.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/360-privacy/](https://apis.io/providers/360-privacy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 360 Privacy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/360-privacy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
